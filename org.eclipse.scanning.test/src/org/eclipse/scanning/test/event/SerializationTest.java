@@ -53,6 +53,7 @@ import org.eclipse.scanning.event.util.JsonUtil;
 import org.eclipse.scanning.example.classregistry.ScanningExampleClassRegistry;
 import org.eclipse.scanning.example.detector.MandelbrotModel;
 import org.eclipse.scanning.points.classregistry.ScanningAPIClassRegistry;
+import org.eclipse.scanning.points.serialization.PointMarshaller;
 import org.eclipse.scanning.points.serialization.PointsModelMarshaller;
 import org.eclipse.scanning.server.application.PseudoSpringParser;
 import org.eclipse.scanning.test.ScanningTestClassRegistry;
@@ -72,7 +73,8 @@ public class SerializationTest {
 				Arrays.asList(new ScanningAPIClassRegistry(),
 						new ScanningExampleClassRegistry(),
 						new ScanningTestClassRegistry()),
-				Arrays.asList(new PointsModelMarshaller())
+				Arrays.asList(new PointsModelMarshaller(),
+						new PointMarshaller())
 				);
 	}
 	
@@ -188,7 +190,14 @@ public class SerializationTest {
 		IPosition tniop = service.unmarshal(json, IPosition.class);
 		assertEquals(point, tniop);
 	}
-
+	
+	@Test
+	public void testSerializePoint() throws Exception {
+		Point point = new Point("x", 100, 0.02, "y", 150, 0.03);
+		String json = service.marshal(point);
+		Point tniop = service.unmarshal(json, Point.class);
+		assertEquals(point, tniop);
+	}
 
 	@Test
 	public void testSerializeRegion() throws Exception {

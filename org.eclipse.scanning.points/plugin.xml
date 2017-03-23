@@ -7,6 +7,11 @@
             class="org.eclipse.scanning.points.serialization.PointsModelMarshaller"
             id="org.eclipse.scanning.points.pointsModelMarshaller">
       </marshaller>
+      <marshaller
+            class="org.eclipse.scanning.points.serialization.PointMarshaller"
+            id="org.eclipse.scanning.points.pointMarshaller">
+      </marshaller>
+      
    </extension>
    <extension
          point="org.eclipse.dawnsci.analysis.api.classregistry">

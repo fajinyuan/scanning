@@ -18,6 +18,9 @@ import java.util.Map;
 import org.eclipse.scanning.api.points.AbstractPosition;
 import org.eclipse.scanning.api.points.IPosition;
 import org.eclipse.scanning.api.points.MapPosition;
+import org.eclipse.scanning.api.points.Point;
+import org.eclipse.scanning.api.points.Scalar;
+import org.eclipse.scanning.api.points.StaticPosition;
 
 class PositionBean {
 
